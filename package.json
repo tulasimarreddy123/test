@@ -4,6 +4,7 @@
   "description": "An IAP change management adapter.",
   "main": "main.js",
   "scripts": {
+    "preinstall": "npm i -g nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/tulasimarreddy123/adapter-change_management#readme",
   "dependencies": {
     "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
