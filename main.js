@@ -125,7 +125,7 @@ function POST(serviceNowTable, callback) {
       pass: options.password,
     },
     baseUrl: options.url,
-    uri: `/api/now/table/${serviceNowTable}`
+    uri: `/api/now/table/${serviceNowTable}`,
   };
 
   // Send Request to ServiceNow.
