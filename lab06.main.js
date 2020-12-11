@@ -199,36 +199,6 @@ healthcheck(callback) {
      */
 
      this.connector = new ServiceNowConnector().get(callback);
-     let callbackData = null;
-     let callbackError = null;
-   if (error) {
-     
-      console.error('Error present. '+this.id);
-      callbackError = error;
-   } 
-    else if (!validResponseRegex.test(response.statusCode)) {
-      console.error('Bad response code.'+this.id);
-      callbackError = response;
-    } else if (isHibernating(response)) {
-      callbackError = 'Service Now instance is hibernating';
-      console.error(callbackError+this.id);
-    }
-    else{
-        callbackData = response;
-    }
-    if(callbackData.hasOwnProperty("body")){
-        let body = callbackData.body;
-        console.log('body is '+body);
-        let json = JSON.parse(body);
-        console.log('json object is '+json);
-var keys = Object.keys(json);
-for (var i = 0; i < keys.length; i++) {
-  console.log(json[keys[i]]);
-  let element = json[keys[i]];
-}
-    }
-     return element;
-   
   }
 
   /**
@@ -248,38 +218,7 @@ for (var i = 0; i < keys.length; i++) {
      * post() takes a callback function.
      */
       this.connector = new ServiceNowConnector().post(callback);
-      let callbackData = null;
-     let callbackError = null;
-   if (error) {
-     
-      console.error('Error present. '+this.id);
-      callbackError = error;
-   } 
-    else if (!validResponseRegex.test(response.statusCode)) {
-      console.error('Bad response code.'+this.id);
-      callbackError = response;
-    } else if (isHibernating(response)) {
-      callbackError = 'Service Now instance is hibernating';
-      console.error(callbackError+this.id);
-    }
-    else{
-        callbackData = response;
-    }
-    if(callbackData.hasOwnProperty("body")){
-        let body = callbackData.body;
-        console.log('body is '+body);
-        let json = JSON.parse(body);
-        console.log('json object is '+json);
-var keys = Object.keys(json);
-for (var i = 0; i < keys.length; i++) {
-  console.log(json[keys[i]]);
-  let element = json[keys[i]];
-}
-    }
-     return element;
   }
 }
-
-
 
 module.exports = ServiceNowAdapter;
