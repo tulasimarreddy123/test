@@ -223,13 +223,24 @@ healthcheck(callback) {
         console.log('json object is '+json);
 var keys = Object.keys(json);
 for (var i = 0; i < keys.length; i++) {
-  console.log(json[keys[i]]);
-  let element = json[keys[i]];
+    if(key=="number" || key == "active" || key == "priority" ||  key == "description" || key == "work_start" || key == "work_end" || key == "sys_id"){
+
+if(key == "number")
+key == "change_ticket_number";
+if(key == "sys_id ")
+key == "change_ticket_key"; 
+    
+    }else{
+
+delete json[keys[i]];
+    }
+  
 }
     }
-     return element;
-   
+     return json;
   }
+   
+  
 
   /**
    * @memberof ServiceNowAdapter
@@ -270,13 +281,23 @@ for (var i = 0; i < keys.length; i++) {
         console.log('body is '+body);
         let json = JSON.parse(body);
         console.log('json object is '+json);
-var keys = Object.keys(json);
-for (var i = 0; i < keys.length; i++) {
-  console.log(json[keys[i]]);
-  let element = json[keys[i]];
-}
+        let result = json.result;
+
+    if(key=="number" || key == "active" || key == "priority" ||  key == "description" || key == "work_start" || key == "work_end" || key == "sys_id"){
+
+if(key == "number")
+key == "change_ticket_number";
+if(key == "sys_id ")
+key == "change_ticket_key"; 
+    
+    }else{
+
+delete json[keys[i]];
     }
-     return element;
+  
+
+    }
+     return json;
   }
 }
 
